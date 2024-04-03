@@ -28,6 +28,8 @@ const Form = () => {
     showForm,
     setShowForm,
     productData,
+    userData,
+    setUserData,
   } = useTask();
   return (
     <div
@@ -42,27 +44,37 @@ const Form = () => {
         />
         <form
           className="w-full h-full p-4 flex flex-col gap-3"
-          onSubmit={(e) => {
+          onSubmit={async (e) => {
+            const user = {
+              customer: customerName,
+              product: product,
+              date: date,
+              amount: amount,
+              payment: transfer,
+              status: status,
+            };
             if (id === "") {
-              createUser({
-                customer: customerName,
-                product: product,
-                date: date,
-                amount: amount,
-                payment: transfer,
-                status: status,
+              e.preventDefault();
+              const data = await createUser(user);
+              setUserData((prev) => {
+                const arr = [...prev, { _id: data.data, ...user }];
+                return arr;
               });
             } else {
-              updateUser({
-                userData: {
-                  customer: customerName,
-                  product: product,
-                  date: date,
-                  amount: amount,
-                  payment: transfer,
-                  status: status,
-                },
+              e.preventDefault();
+              const data = await updateUser({
+                userData: user,
                 id: id,
+              });
+              setUserData((prev) => {
+                const arr = prev.map((item) => {
+                  if (item._id === id) {
+                    return data.data;
+                  } else {
+                    return item;
+                  }
+                });
+                return arr;
               });
             }
             e.preventDefault();
