@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import Select from "react-select";
 import { useTask } from "../../Context/Context";
 import { createUser } from "../../utils/createUser";
@@ -31,6 +31,9 @@ const Form = () => {
     productData,
     userData,
     setUserData,
+    productRef,
+    statusRef,
+    paymentRef
   } = useTask();
   return (
     <div
@@ -84,6 +87,7 @@ const Form = () => {
               options={productData}
               isSearchable={true}
               isClearable={false}
+              ref={productRef}
               formatOptionLabel={(prod) => (
                 <div className="product-option flex items-center gap-3">
                   <img src={prod.value[0]} alt="product-image" />
@@ -152,6 +156,7 @@ const Form = () => {
               ]}
               isSearchable={true}
               isClearable={false}
+              ref={paymentRef}
               className="basic-single max-w-[100%] w-[100%] rounded-lg"
               classNamePrefix="innerSelect select"
               onChange={(e) => {
@@ -171,6 +176,7 @@ const Form = () => {
               ]}
               isSearchable={true}
               isClearable={false}
+              ref={statusRef}
               className="basic-single max-w-[100%] w-[100%] rounded-lg"
               classNamePrefix="innerSelect select"
               onChange={(e) => {

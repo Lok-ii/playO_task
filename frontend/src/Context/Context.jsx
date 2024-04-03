@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useRef, useState } from "react";
 import hat from "../assets/images/hat.png";
 import laptop from "../assets/images/laptop.png";
 import phone from "../assets/images/phone.png";
@@ -26,6 +26,9 @@ const Context = ({ children }) => {
   const [id, setId] = useState("");
   const [userData, setUserData] = useState([]);
   const [showForm, setShowForm] = useState(false);
+  const productRef = useRef();
+  const paymentRef = useRef();
+  const statusRef = useRef();
 
   const productData = [
     {
@@ -98,6 +101,9 @@ const Context = ({ children }) => {
     showForm,
     setShowForm,
     productData,
+    productRef,
+    paymentRef,
+    statusRef,
   };
   return <TaskContext.Provider value={value}>{children}</TaskContext.Provider>;
 };

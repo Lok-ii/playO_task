@@ -1,4 +1,3 @@
-import React from "react";
 import { LiaEditSolid } from "react-icons/lia";
 import { MdDelete } from "react-icons/md";
 import dayjs from "dayjs";
@@ -16,6 +15,9 @@ const TableRow = ({ item, idx }) => {
     setCustomerName,
     setAmount,
     setUserData,
+    productRef,
+    statusRef,
+    paymentRef,
   } = useTask();
   const date = dayjs(item.date).format("YYYY-MM-DD");
   console.log(date);
@@ -61,6 +63,18 @@ const TableRow = ({ item, idx }) => {
             setTransfer(item.payment);
             setStatus(item.status);
             setShowForm(true);
+            productRef.current.setValue({
+              value: item.product,
+              label: item.product[1],
+            });
+            paymentRef.current.setValue({
+              value: item.payment,
+              label: item.payment,
+            });
+            statusRef.current.setValue({
+              value: item.status,
+              label: item.status,
+            });
           }}
         />
         <MdDelete
