@@ -33,7 +33,7 @@ const Form = () => {
     setUserData,
     productRef,
     statusRef,
-    paymentRef
+    paymentRef,
   } = useTask();
   return (
     <div
@@ -170,13 +170,28 @@ const Form = () => {
             <Select
               name="status"
               options={[
-                { value: "Complete", label: "Complete" },
+                { value: "Delivered", label: "Delivered" },
                 { value: "Process", label: "Process" },
                 { value: "Cancelled", label: "Cancelled" },
               ]}
               isSearchable={true}
               isClearable={false}
               ref={statusRef}
+              formatOptionLabel={(prod) => (
+                <div className="status-option flex items-center gap-3">
+                  <span
+                    className={`min-w-[3.5rem] w-[6rem] flex flex-col items-center ${
+                      prod.label === "Delivered"
+                        ? "bg-[#EBF9F1] text-[#1F9254]"
+                        : prod.label === "Process"
+                        ? "bg-[#FEF2E5] text-[#CD6200]"
+                        : "bg-[#FBE7E8]"
+                    } rounded-[3rem] `}
+                  >
+                    {prod.label}
+                  </span>
+                </div>
+              )}
               className="basic-single max-w-[100%] w-[100%] rounded-lg"
               classNamePrefix="innerSelect select"
               onChange={(e) => {

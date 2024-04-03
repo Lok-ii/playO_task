@@ -48,7 +48,15 @@ const TableRow = ({ item, idx }) => {
       <td className="min-w-[3.5rem] w-[6rem]">
         <p>{item.payment}</p>
       </td>
-      <td className="min-w-[3.5rem] w-[6rem]">
+      <td
+        className={`min-w-[3.5rem] w-[6rem] flex flex-col items-center ${
+          item.status === "Delivered"
+            ? "bg-[#EBF9F1] text-[#1F9254]"
+            : item.status === "Process"
+            ? "bg-[#FEF2E5] text-[#CD6200]"
+            : "bg-[#FBE7E8]"
+        } rounded-[3rem] `}
+      >
         <p>{item.status}</p>
       </td>
       <td className="flex items-center gap-2">
