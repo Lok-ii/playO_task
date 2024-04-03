@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  width: 100%;
+}
+
+#root{
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+input{
+  color: black;
+}
+
+.innerSelect{
+  /* background-color: gray; */
+  color: black;
+}
