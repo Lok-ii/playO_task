@@ -7,6 +7,7 @@ const router = express.Router();
 router.post("/", createUser);
 router.get("/", getUserData);
 router.patch("/:id", updateUser);
+router.put("/:id", updateUser);
 router.delete("/:id", deleteUser);
 
 

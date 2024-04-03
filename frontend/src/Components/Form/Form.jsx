@@ -4,6 +4,7 @@ import { useTask } from "../../Context/Context";
 import { createUser } from "../../utils/createUser";
 import { updateUser } from "../../utils/updateUser";
 import { IoClose } from "react-icons/io5";
+import { getUserData } from "../../utils/getUserData";
 
 const Form = () => {
   const {
@@ -55,26 +56,16 @@ const Form = () => {
               status: status,
             };
             if (id === "") {
-              const data = await createUser(user);
-              setUserData((prev) => {
-                const arr = [...prev, { _id: data.data, ...user }];
-                return arr;
-              });
+              createUser(user);
+              const data = await getUserData();
+              setUserData(data.data);
             } else {
-              const data = await updateUser({
+              updateUser({
                 userData: user,
                 id: id,
               });
-              setUserData((prev) => {
-                const arr = prev.map((item) => {
-                  if (item._id === id) {
-                    return data.data;
-                  } else {
-                    return item;
-                  }
-                });
-                return arr;
-              });
+              const data = await getUserData();
+              setUserData(data.data);
             }
             setAmount(0);
             setCustomerName("");

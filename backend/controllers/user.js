@@ -24,6 +24,7 @@ const createUser = async (req, res) => {
     length: 5,
     useLetters: false,
   });
+  console.log(id);
   const newUser = { trackingId: id, ...body };
   try {
     const user = await userModel.create(newUser);

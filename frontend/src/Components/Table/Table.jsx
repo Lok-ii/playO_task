@@ -30,7 +30,7 @@ const Table = () => {
     <div className="w-full">
       <table className="tableHeader w-full">
         <thead className="w-full flex items-center justify-around">
-          {header.map((head, idx, arr) => {
+          {header.map((head, idx) => {
             return (
               <th key={idx + "header"} className="flex items-center gap-1 w-[6rem]">
                 <p>{head}</p>

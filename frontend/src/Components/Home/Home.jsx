@@ -6,9 +6,9 @@ import Table from "../Table/Table";
 import Form from "../Form/Form";
 
 const Home = () => {
-  const { searchIcon, setSearchIcon, showForm, setShowForm } = useTask();
+  const { searchIcon, setSearchIcon, setShowForm } = useTask();
   return (
-    <div className="fixed w-[95%] right-0 py-4 px-8 flex flex-col gap-4">
+    <div className="fixed w-[95%] h-full right-0 py-4 px-8 flex flex-col gap-4 overflow-y-auto">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-4">
           <img
