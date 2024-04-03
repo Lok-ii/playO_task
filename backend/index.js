@@ -11,7 +11,8 @@ const app = express();
 
 app.use(
   cors({
-    origin: "*",
+    origin: "*", // or specify your origin
+    methods: ["GET", "POST", "PATCH", "PUT", "DELETE", "OPTIONS"], // specify allowed methods
   })
 );
 app.use(express.json());
