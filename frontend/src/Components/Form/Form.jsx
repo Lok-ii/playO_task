@@ -146,8 +146,8 @@ const Form = () => {
             <Select
               name="payment"
               options={[
-                { value: "transfer", label: "Transfer Bank" },
-                { value: "cash", label: "Cash on Delivery" },
+                { value: "Transfer Bank", label: "Transfer Bank" },
+                { value: "Cash on Delivery", label: "Cash on Delivery" },
               ]}
               isSearchable={true}
               isClearable={false}
@@ -164,9 +164,9 @@ const Form = () => {
             <Select
               name="status"
               options={[
-                { value: "complete", label: "Complete" },
-                { value: "process", label: "Process" },
-                { value: "cancelled", label: "Cancelled" },
+                { value: "Complete", label: "Complete" },
+                { value: "Process", label: "Process" },
+                { value: "Cancelled", label: "Cancelled" },
               ]}
               isSearchable={true}
               isClearable={false}
