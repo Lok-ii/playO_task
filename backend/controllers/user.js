@@ -45,7 +45,11 @@ const updateUser = async (req, res) => {
   console.log(req.params.id);
   console.log(req.body);
   try {
-    const user = await userModel.findByIdAndUpdate(req.params.id, {...req.body}, {new: true});
+    const user = await userModel.findByIdAndUpdate(
+      req.params.id,
+      { ...req.body },
+      { new: true }
+    );
     res.status(200).json({
       success: true,
       data: user,
@@ -75,9 +79,29 @@ const deleteUser = async (req, res) => {
   }
 };
 
+const getSearchedData = async (req, res) => {
+  try {
+    const user = await userModel.find({});
+    const searchData = user.filter((item) => {
+      return item.customer.indexOf(req.params.search) != -1;
+    })
+    res.status(200).json({
+      success: true,
+      data: searchData,
+    });
+  } catch (err) {
+    console.log(err);
+    res.json({
+      success: false,
+      message: err.message,
+    });
+  }
+};
+
 module.exports = {
   createUser,
   getUserData,
   updateUser,
   deleteUser,
+  getSearchedData,
 };

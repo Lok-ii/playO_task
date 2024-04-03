@@ -4,9 +4,10 @@ import { useTask } from "../../Context/Context";
 import Photo from "../../assets/Photo.png";
 import Table from "../Table/Table";
 import Form from "../Form/Form";
+import { searchData } from "../../utils/searchData";
 
 const Home = () => {
-  const { searchIcon, setSearchIcon, setShowForm } = useTask();
+  const { searchIcon, setSearchIcon, setShowForm, setUserData, setLoading } = useTask();
   return (
     <div className="fixed w-[95%] h-full right-0 py-4 px-8 flex flex-col gap-4 overflow-y-auto">
       <div className="flex items-center justify-between">
@@ -21,8 +22,17 @@ const Home = () => {
             type="text"
             placeholder="search..."
             className={`h-[2.5rem] bg-grayPrimary rounded-lg ${
-              searchIcon ? "w-0 p-0" : "w-[50%] px-2"
+              searchIcon ? "w-0 p-0" : "w-[100%] px-2"
             } transition-all duration-200 ease-in-out`}
+            onChange={(e) => {
+              const search = e.target.value;
+              setLoading(true);
+              setTimeout(async () => {
+                const data = await searchData(search);
+                setUserData(data.data);
+                setLoading(false);
+              }, 3000);
+            }}
           />
         </div>
         <div>
@@ -36,7 +46,10 @@ const Home = () => {
           <p>entries</p>
         </div>
         <div>
-          <button className="bg-black text-white py-1 px-6 rounded-lg " onClick={() => setShowForm(prev => !prev)}>
+          <button
+            className="bg-black text-white py-1 px-6 rounded-lg "
+            onClick={() => setShowForm((prev) => !prev)}
+          >
             + Add Customer
           </button>
         </div>

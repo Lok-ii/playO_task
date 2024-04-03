@@ -23,7 +23,7 @@ const TableRow = ({ item, idx }) => {
   console.log(date);
   return (
     <tr
-      className={`flex md:flex-row flex-col items-center justify-around md:h-[3rem] ${
+      className={`flex md:flex-row w-full flex-col items-center justify-around md:h-[3rem] ${
         idx % 2 === 0 ? "bg-gray-100" : "bg-white"
       }`}
     >

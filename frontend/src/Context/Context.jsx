@@ -26,6 +26,7 @@ const Context = ({ children }) => {
   const [id, setId] = useState("");
   const [userData, setUserData] = useState([]);
   const [showForm, setShowForm] = useState(false);
+  const [loading, setLoading] = useState(false);
   const productRef = useRef();
   const paymentRef = useRef();
   const statusRef = useRef();
@@ -104,6 +105,8 @@ const Context = ({ children }) => {
     productRef,
     paymentRef,
     statusRef,
+    loading,
+    setLoading,
   };
   return <TaskContext.Provider value={value}>{children}</TaskContext.Provider>;
 };
