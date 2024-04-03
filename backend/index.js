@@ -13,8 +13,11 @@ app.use(
   cors({
     origin: "*", // or specify your origin
     methods: ["GET", "POST", "PATCH", "PUT", "DELETE", "OPTIONS"], // specify allowed methods
+    allowedHeaders: ["Content-Type", "Authorization"], // specify allowed headers
   })
 );
+// Enable preflight requests for all routes
+app.options("*", cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 

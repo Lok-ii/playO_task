@@ -45,6 +45,7 @@ const Form = () => {
         <form
           className="w-full h-full p-4 flex flex-col gap-3"
           onSubmit={async (e) => {
+            e.preventDefault();
             const user = {
               customer: customerName,
               product: product,
@@ -54,14 +55,12 @@ const Form = () => {
               status: status,
             };
             if (id === "") {
-              e.preventDefault();
               const data = await createUser(user);
               setUserData((prev) => {
                 const arr = [...prev, { _id: data.data, ...user }];
                 return arr;
               });
             } else {
-              e.preventDefault();
               const data = await updateUser({
                 userData: user,
                 id: id,
@@ -77,7 +76,6 @@ const Form = () => {
                 return arr;
               });
             }
-            e.preventDefault();
             setAmount(0);
             setCustomerName("");
             setTransfer("");

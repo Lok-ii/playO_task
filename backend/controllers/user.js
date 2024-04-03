@@ -41,8 +41,10 @@ const createUser = async (req, res) => {
 };
 
 const updateUser = async (req, res) => {
+  console.log(req.params.id);
+  console.log(req.body);
   try {
-    const user = await userModel.findByIdAndUpdate(req.params.id, req.body);
+    const user = await userModel.findByIdAndUpdate(req.params.id, {...req.body}, {new: true});
     res.status(200).json({
       success: true,
       data: user,
