@@ -27,6 +27,7 @@ const Form = () => {
     setId,
     showForm,
     setShowForm,
+    productData,
   } = useTask();
   return (
     <div
@@ -79,12 +80,15 @@ const Form = () => {
             <Select
               name="product"
               placeholder="Select a Product"
-              options={[
-                { value: ["image", "productname"], label: "Hat" },
-                { value: ["image", "laptop"], label: "Laptop" },
-              ]}
+              options={productData}
               isSearchable={true}
               isClearable={false}
+              formatOptionLabel={(prod) => (
+                <div className="product-option flex items-center gap-3">
+                  <img src={prod.value[0]} alt="product-image" />
+                  <span>{prod.label}</span>
+                </div>
+              )}
               className="basic-single max-w-[100%] w-[100%] rounded-lg"
               classNamePrefix="innerSelect select"
               onChange={(e) => {

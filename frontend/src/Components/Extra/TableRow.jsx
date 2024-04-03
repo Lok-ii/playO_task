@@ -15,7 +15,7 @@ const TableRow = ({ item, idx }) => {
       <td>
         <p>#{item.trackingId}</p>
       </td>
-      <td className="min-w-[3.5rem] w-[6rem]">
+      <td className="min-w-[3.5rem] w-[6rem] flex items-center gap-2">
         <div className="flex items-center gap-2">
           <img src={item.product[0]} alt="" />
         </div>
@@ -37,8 +37,12 @@ const TableRow = ({ item, idx }) => {
         <p>{item.status}</p>
       </td>
       <td className="flex items-center gap-2">
-        <LiaEditSolid className="text-2xl" />
-        <MdDelete className="text-2xl" />
+        <LiaEditSolid className="text-2xl cursor-pointer" onClick={() => {
+          setId(item._id);
+        }} />
+        <MdDelete className="text-2xl cursor-pointer" onClick={() => {
+            deleteUser();
+        }} />
       </td>
     </tr>
   );

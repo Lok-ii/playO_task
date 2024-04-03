@@ -3,6 +3,9 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const userRouter = require("./routes/user");
+const dotenv = require("dotenv");
+
+dotenv.config();
 
 const app = express();
 
@@ -13,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/", userRouter);
 
 mongoose
-  .connect("mongodb://localhost:27017/playO")
+  .connect(process.env.CONNECTION_STRING)
   .then(() => {
     console.log("Connected to MongoDB");
   })
