@@ -33,43 +33,43 @@ const Context = ({ children }) => {
 
   const productData = [
     {
-      value: [hat, "Hat"],
+      value: ["https://i.ibb.co/SdWWZRZ/hat.png", "Hat"],
       label: "Hat",
     },
     {
-      value: [laptop, "Laptop"],
+      value: ["https://i.ibb.co/GxYDtPR/laptop.png", "Laptop"],
       label: "Laptop",
     },
     {
-      value: [phone, "Phone"],
+      value: ["https://i.ibb.co/cJsqjLb/phone.png", "Phone"],
       label: "Phone",
     },
     {
-      value: [bag, "Bag"],
+      value: ["https://i.ibb.co/yVZS9V8/bag.png", "Bag"],
       label: "Bag",
     },
     {
-      value: [headset, "Headset"],
+      value: ["https://i.ibb.co/Dghmp0b/headset.png", "Headset"],
       label: "Headset",
     },
     {
-      value: [mouse, "Mouse"],
+      value: ["https://i.ibb.co/LzCPgvL/mouse.png", "Mouse"],
       label: "Mouse",
     },
     {
-      value: [clock, "Clock"],
+      value: ["https://i.ibb.co/93KZ9sx/clock.png", "Clock"],
       label: "Clock",
     },
     {
-      value: [tshirt, "T-shirt"],
+      value: ["https://i.ibb.co/VqsqK73/tshirt.png", "T-shirt"],
       label: "T-shirt",
     },
     {
-      value: [monitor, "Monitor"],
+      value: ["https://i.ibb.co/PwDZxMY/monitor.png", "Monitor"],
       label: "Monitor",
     },
     {
-      value: [keyboard, "Keyboard"],
+      value: ["https://i.ibb.co/V318xdx/keyboard.png", "Keyboard"],
       label: "Keyboard",
     },
   ];
